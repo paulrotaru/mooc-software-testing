@@ -11,8 +11,10 @@ public class CaesarShiftCipher {
 
         for(int i = 0; i < length; i++){
             currentChar = message.charAt(i);
-           
-            sb.append(currentChar);
+
+            //here's is a bug, as the curent char is already stored in the sb, before to be shiftded
+            //we must to remove this line sb.append(currentChar)
+            // sb.append(currentChar);
             if (currentChar > 'z' || currentChar < 'a') {
                 return "invalid";
             } else if ((char) (currentChar + shift) > 'z') {
